@@ -1,0 +1,19 @@
+{
+    "id": "beatblock",
+    "data_pack": {
+        "name": "beatblock",
+        "description": "Beat Block Galaxy in Minecraft",
+        "load": ["src"]
+    },
+    "resource_pack": {
+        "name": "beatblock",
+        "description": "Beat Block Galaxy in Minecraft",
+        "load": ["assets"]
+    },
+    "pipeline": [
+        "beatblock.generate"
+    ],
+    "meta": {
+        "generate_rooms": true
+    }
+}
