@@ -1,6 +1,13 @@
 # This module stores the positions for all blocks in the Beat Block Galaxy.
 
+from dataclasses import dataclass
 from enum import Enum
+from typing import Tuple
+
+
+BLOCK_SIZE = 2
+
+Coords = Tuple[int, int, int]
 
 
 class BlockType(Enum):
@@ -14,44 +21,51 @@ G = BlockType.BEAT_GREEN
 Y = BlockType.BEAT_YELLOW
 
 
-BLOCKS = {
+@dataclass
+class Block:
+    x: int
+    y: int
+    z: int
+    type: BlockType
+
+    @property
+    def coords(self) -> Coords:
+        return self.x, self.y, self.z
+
+
+def square(bottom_left: Coords, type: BlockType):
+    x, y, z = bottom_left
+    return [
+        Block(x, y, z, type),
+        Block(x + 2, y, z, type),
+        Block(x, y, z + 2, type),
+        Block(x + 2, y, z + 2, type),
+    ]
+
+
+def fill(bottom_left: Coords, top_right: Coords, type: BlockType):
+    x1, y1, z1 = bottom_left
+    x2, y2, z2 = top_right
+    return [
+        Block(x, y, z, type)
+        for x in range(x1, x2 + 1, BLOCK_SIZE)
+        for y in range(y1, y2 + 1, BLOCK_SIZE)
+        for z in range(z1, z2 + 1, BLOCK_SIZE)
+    ]
+
+
+BLOCKS = [
     # Starting bridge
-    (0, 0, 0): S,
-    (2, 0, 0): S,
-    (0, 0, 2): S,
-    (2, 0, 2): S,
-    (0, 0, 4): S,
-    (2, 0, 4): S,
-    (0, 0, 6): S,
-    (2, 0, 6): S,
-    (0, 0, 8): S,
+    *fill((0, 0, 0), (2, 0, 8), S),
     # 2 green to the right
-    (2, 0, 8): G,
-    (2, 0, 10): G,
+    *fill((2, 0, 8), (2, 0, 10), G),
     # 2 yellow to the left
-    (0, 0, 12): Y,
-    (0, 0, 14): Y,
+    *fill((0, 0, 12), (0, 0, 14), Y),
     # Solid square
-    (0, 0, 10): S,
-    (2, 0, 12): S,
-    (2, 0, 14): S,
-    (0, 0, 16): S,
-    (2, 0, 16): S,
-    (0, 0, 18): S,
-    (2, 0, 18): S,
-    # Green row
-    (2, 0, 20): S,
-    (2, 0, 22): S,
-    (2, 0, 24): S,
-    (2, 0, 26): S,
-    # Yellow row
-    (0, 0, 20): Y,
-    (0, 0, 22): Y,
-    (0, 0, 24): Y,
-    (0, 0, 26): Y,
+    *fill((0, 0, 16), (2, 0, 18), S),
+    # Green and yellow rows
+    *fill((2, 0, 20), (2, 0, 26), G),
+    *fill((0, 0, 20), (0, 0, 26), Y),
     # Solid square
-    (0, 0, 28): S,
-    (2, 0, 28): S,
-    (0, 0, 30): S,
-    (2, 0, 30): S,
-}
+    *fill((0, 0, 28), (2, 0, 30), S),
+]

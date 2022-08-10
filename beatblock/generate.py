@@ -20,13 +20,13 @@ def beet_default(ctx: Context) -> None:
     load_function.append("say hi")
 
     swizzle = lambda x: x[::-1]  # invert Z and X coordinates
-    for coords, block in map.BLOCKS.items():
-        if block == map.BlockType.SOLID:
-            command = "setblock {} {} {} purpur_block".format(*swizzle(coords))
-        elif block == map.BlockType.BEAT_GREEN:
-            command = "setblock {} {} {} emerald_block".format(*swizzle(coords))
-        elif block == map.BlockType.BEAT_YELLOW:
-            command = "setblock {} {} {} gold_block".format(*swizzle(coords))
+    for block in map.BLOCKS:
+        if block.type == map.BlockType.SOLID:
+            command = "setblock {} {} {} purpur_block".format(*swizzle(block.coords))
+        elif block.type == map.BlockType.BEAT_GREEN:
+            command = "setblock {} {} {} emerald_block".format(*swizzle(block.coords))
+        elif block.type == map.BlockType.BEAT_YELLOW:
+            command = "setblock {} {} {} gold_block".format(*swizzle(block.coords))
         load_function.append(command)
 
     ctx.data["beatblock:load"] = load_function
