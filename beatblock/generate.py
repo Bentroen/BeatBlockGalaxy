@@ -1,11 +1,14 @@
 import importlib
 
 from . import map_data as map
+from . import model
 
-from beet import Context, Function, FunctionTag, Model
+from beet import Context, Function, FunctionTag
 
 
 def beet_default(ctx: Context) -> None:
+
+    model.generate(ctx)
 
     importlib.reload(map)
 
