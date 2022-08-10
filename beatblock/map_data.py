@@ -95,7 +95,7 @@ def full_pyramid(top: Coords, height: int):
             )
 
 
-BLOCKS = [
+BASE_BLOCKS = [
     # Starting bridge
     *fill((0, 0, 0), (2, 0, 8), S),
     # 2 green to the right
@@ -139,8 +139,6 @@ BLOCKS = [
     # Green and yellow pairs
     *fill((10, 3, 66), (12, 3, 66), Y),
     *fill((10, 3, 68), (12, 3, 68), G),
-    *fill((10, 3, 72), (12, 3, 72), Y),
-    *fill((14, 3, 72), (16, 3, 72), G),
     *fill((18, 3, 70), (18, 3, 72), Y),
     # Individual green and yellow blocks
     Block(14, 3, 66, G),
@@ -162,8 +160,18 @@ BLOCKS = [
     *fill((32, 6, 82), (32, 6, 84), Y),
     # Solid square
     *fill((30, 6, 86), (32, 6, 88), S),
-    # Pyramid
-    *pyramid((31, 10, 99), 10),
+]
+
+
+MISSION_1_BLOCKS = [
+    # Comet Medal bridge
+    *fill((10, 3, 72), (12, 3, 72), Y),
+    *fill((14, 3, 72), (16, 3, 72), G),
+    # Single wall pyramid
+    *pyramid((31, 10, 99), 1),
+]
+
+MISSION_2_BLOCKS = [
     # Full pyramid
     *[block for face in full_pyramid((31, 10, 99), 10) for block in face],
 ]

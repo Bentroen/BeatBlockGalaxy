@@ -20,7 +20,7 @@ def beet_default(ctx: Context) -> None:
     load_function.append("say hi")
 
     swizzle = lambda x: x[::-1]  # invert Z and X coordinates
-    for block in map.BLOCKS:
+    for block in map.MISSION_1_BLOCKS:
         if block.type == map.BlockType.SOLID:
             command = "setblock {} {} {} purpur_block".format(*swizzle(block.coords))
         elif block.type == map.BlockType.BEAT_GREEN:
