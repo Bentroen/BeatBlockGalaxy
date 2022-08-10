@@ -82,4 +82,43 @@ BLOCKS = [
     *fill((-4, 1, 50), (-2, 1, 52), G),
     # Yellow square
     *fill((-8, 1, 50), (-6, 1, 52), Y),
+    # Green square
+    *fill((-8, 1, 54), (-6, 1, 56), Y),
+    # Solid bridge
+    *fill((-8, 2, 58), (-6, 2, 64), S),
+    # Alternating green and yellow rows
+    *fill((-6, 2, 66), (-6, 2, 68), G),
+    *fill((-4, 2, 66), (-4, 2, 68), Y),
+    *fill((-2, 2, 66), (-2, 2, 68), G),
+    *fill((0, 2, 66), (0, 2, 68), Y),
+    *fill((2, 2, 66), (2, 2, 68), G),
+    *fill((4, 2, 66), (4, 2, 68), Y),
+    *fill((6, 3, 66), (6, 3, 68), G),
+    *fill((8, 4, 66), (8, 4, 68), Y),
+    # Green and yellow pairs
+    *fill((10, 3, 66), (12, 3, 66), Y),
+    *fill((10, 3, 68), (12, 3, 68), G),
+    *fill((10, 3, 72), (12, 3, 72), Y),
+    *fill((14, 3, 72), (16, 3, 72), G),
+    *fill((18, 3, 70), (18, 3, 72), Y),
+    # Individual green and yellow blocks
+    Block(14, 3, 66, G),
+    Block(16, 3, 68, Y),
+    Block(18, 3, 68, G),
+    # Solid bridge
+    *fill((22, 4, 66), (24, 4, 72), S),
+    # Crossed green and yellow staircase
+    Block(26, 4, 70, Y),
+    Block(26, 4, 72, G),
+    Block(28, 5, 70, G),
+    Block(28, 5, 72, Y),
+    # Solid bridge
+    *fill((30, 6, 70), (32, 6, 76), S),
+    # Crossed green and yellow bridge
+    *fill((30, 6, 78), (30, 6, 80), Y),
+    *fill((32, 6, 78), (32, 6, 80), G),
+    *fill((30, 6, 82), (30, 6, 84), G),
+    *fill((32, 6, 82), (32, 6, 84), Y),
+    # Solid square
+    *fill((30, 6, 86), (32, 6, 88), S),
 ]
