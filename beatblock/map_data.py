@@ -69,6 +69,32 @@ def pyramid(top: Coords, height: int):
             yield Block(x - j, y - i // 2, z - i, type)
 
 
+def full_pyramid(top: Coords, height: int):
+    x, y, z = top
+    for i in range(0, height, BLOCK_SIZE):
+        curr_y = y - i // BLOCK_SIZE
+        for j in range(-i + BLOCK_SIZE, i + 1, BLOCK_SIZE):
+            if (
+                i == 0
+                or (i == height - BLOCK_SIZE and j == i)
+                or (i == height - BLOCK_SIZE * 2 and j == 0)
+            ):
+                type = S
+            else:
+                type = (
+                    G
+                    if (i % (2 * BLOCK_SIZE) == 0) ^ (j % (2 * BLOCK_SIZE) == 0)
+                    else Y
+                )
+
+            yield (
+                Block(x - j, curr_y, z - i, type),  # west
+                Block(x + j, curr_y, z + i, type),  # east
+                Block(x + i, curr_y, z - j, type),  # south
+                Block(x - i, curr_y, z + j, type),  # north
+            )
+
+
 BLOCKS = [
     # Starting bridge
     *fill((0, 0, 0), (2, 0, 8), S),
@@ -138,4 +164,6 @@ BLOCKS = [
     *fill((30, 6, 86), (32, 6, 88), S),
     # Pyramid
     *pyramid((31, 10, 99), 10),
+    # Full pyramid
+    *[block for face in full_pyramid((31, 10, 99), 10) for block in face],
 ]
