@@ -1,4 +1,4 @@
-from . import map
+from . import map_data
 
 from beet import Context, Function, FunctionTag, Model
 
