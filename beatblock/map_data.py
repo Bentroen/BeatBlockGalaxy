@@ -68,4 +68,18 @@ BLOCKS = [
     *fill((0, 0, 20), (0, 0, 26), Y),
     # Solid square
     *fill((0, 0, 28), (2, 0, 30), S),
+    # Green step
+    *fill((0, 1, 32), (2, 1, 32), G),
+    # Solid bridge
+    *fill((0, 2, 34), (2, 2, 40), S),
+    # Green square
+    *fill((0, 2, 42), (2, 2, 44), G),
+    # Yellow square
+    *fill((0, 2, 46), (2, 2, 48), Y),
+    # Solid square
+    *fill((0, 2, 50), (2, 2, 52), S),
+    # Green square
+    *fill((-4, 1, 50), (-2, 1, 52), G),
+    # Yellow square
+    *fill((-8, 1, 50), (-6, 1, 52), Y),
 ]
