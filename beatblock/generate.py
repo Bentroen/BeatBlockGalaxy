@@ -15,7 +15,8 @@ def beet_default(ctx: Context) -> None:
 
     load_function = Function()
 
-    # function.append("fill 0 ")
+    # Remove The Void platform
+    load_function.append("fill -8 -61 -8 24 -61 24 air")
     load_function.append("say hi")
 
     for block in map.SOLID:
