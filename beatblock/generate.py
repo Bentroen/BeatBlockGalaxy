@@ -1,9 +1,13 @@
+import importlib
+
 from . import map_data
 
 from beet import Context, Function, FunctionTag, Model
 
 
 def beet_default(ctx: Context) -> None:
+
+    importlib.reload(map_data)
 
     # Set up tick and load functions
     ctx.data["minecraft:load"] = FunctionTag({"values": ["beatblock:load"]})
