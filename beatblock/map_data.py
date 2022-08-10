@@ -54,6 +54,21 @@ def fill(bottom_left: Coords, top_right: Coords, type: BlockType):
     ]
 
 
+def pyramid(top: Coords, height: int):
+    x, y, z = top
+    for i in range(0, height, BLOCK_SIZE):
+        for j in range(-i, i + 1, BLOCK_SIZE):
+            if i == 0 or (i == height - BLOCK_SIZE and (j == i or j == -i)):
+                type = S
+            else:
+                type = (
+                    G
+                    if (i % (2 * BLOCK_SIZE) == 0) ^ (j % (2 * BLOCK_SIZE) == 0)
+                    else Y
+                )
+            yield Block(x - j, y - i // 2, z - i, type)
+
+
 BLOCKS = [
     # Starting bridge
     *fill((0, 0, 0), (2, 0, 8), S),
@@ -121,4 +136,6 @@ BLOCKS = [
     *fill((32, 6, 82), (32, 6, 84), Y),
     # Solid square
     *fill((30, 6, 86), (32, 6, 88), S),
+    # Pyramid
+    *pyramid((31, 10, 99), 10),
 ]
