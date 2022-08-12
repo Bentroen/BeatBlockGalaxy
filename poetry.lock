@@ -42,6 +42,18 @@ jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
 uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
+name = "bolt"
+version = "0.17.5"
+description = "Supercharge Minecraft commands with Python"
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[package.dependencies]
+beet = ">=0.68.3"
+mecha = ">=0.54.9"
+
+[[package]]
 name = "click"
 version = "8.1.3"
 description = "Composable command line interface toolkit"
@@ -109,6 +121,18 @@ description = "Safely add untrusted strings to HTML/XML markup."
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "mecha"
+version = "0.54.9"
+description = "A powerful Minecraft command library"
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[package.dependencies]
+beet = ">=0.68.2"
+tokenstream = "1.4.2"
 
 [[package]]
 name = "mypy-extensions"
@@ -181,6 +205,14 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "tokenstream"
+version = "1.4.2"
+description = "A versatile token stream for handwritten parsers"
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -207,11 +239,12 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "69fc7183bbdf1f445d5151d67b9d1a456bfc443a50e007c7c6d966d0c6c17ba0"
+content-hash = "1c18037444b9e618d000f59f9e52d626134f7787ad6540b6ee11357ebda3a0eb"
 
 [metadata.files]
 beet = []
 black = []
+bolt = []
 click = [
     {file = "click-8.1.3-py3-none-any.whl", hash = "sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48"},
     {file = "click-8.1.3.tar.gz", hash = "sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"},
@@ -224,6 +257,7 @@ isort = [
 ]
 jinja2 = []
 markupsafe = []
+mecha = []
 mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
     {file = "mypy_extensions-0.4.3.tar.gz", hash = "sha256:2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"},
@@ -240,6 +274,7 @@ platformdirs = [
 ]
 pydantic = []
 pyyaml = []
+tokenstream = []
 toml = []
 tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},

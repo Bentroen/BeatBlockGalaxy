@@ -8,6 +8,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.10"
 beet = "^0.71.0"
+bolt = "^0.17.5"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"

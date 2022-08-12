@@ -10,8 +10,12 @@
         "description": "Beat Block Galaxy in Minecraft",
         "load": ["assets"]
     },
+    "require": [
+        "bolt"
+    ],
     "pipeline": [
-        "beatblock.generate"
+        "beatblock.generate",
+        "mecha"
     ],
     "meta": {
         "generate_rooms": true
