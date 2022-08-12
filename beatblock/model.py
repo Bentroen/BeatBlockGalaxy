@@ -2,16 +2,16 @@ from typing import Dict, List
 from beet import Context, Model
 
 
-def multipart_model(models: List[str]) -> Model:
+def multipart_model(prefix: str, models: List[str]) -> Model:
     def multipart_base() -> Dict:
-        return {"parent": "beatblock:block/base", "overrides": []}
+        return {"parent": f"{prefix}/base", "overrides": []}
 
     def multipart_predicate(cmd: int, model: str) -> dict:
         return {"predicate": {"custom_model_data": cmd}, "model": model}
 
     multipart = multipart_base()
     for id, model in enumerate(models):
-        predicate = multipart_predicate(id + 1, f"beatblock:block/{model}")
+        predicate = multipart_predicate(id + 1, f"{prefix}/{model}")
         multipart["overrides"].append(predicate)
 
     return Model(multipart)
@@ -53,7 +53,7 @@ def base_model() -> Model:
 def custom_model(texture: str) -> Model:
     return Model(
         {
-            "parent": "beatblock:block",
+            "parent": "beatblock:block/base",
             "textures": {"texture": f"beatblock:block/{texture}"},
         }
     )
@@ -75,4 +75,4 @@ def generate(ctx: Context) -> None:
         ctx.assets[f"beatblock:block/{state}"] = custom_model(texture=state)
 
     ctx.assets["beatblock:block/base"] = base_model()
-    ctx.assets["minecraft:item/stone"] = multipart_model(states)
+    ctx.assets["minecraft:item/stone"] = multipart_model("beatblock:block", states)
