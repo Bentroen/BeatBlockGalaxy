@@ -20,7 +20,20 @@ def multipart_model(models: List[str]) -> Model:
 def base_model() -> Model:
     return Model(
         {
-            "parent": "block/cube_all",
+            "elements": [
+                {
+                    "from": [0, 0, 0],
+                    "to": [16, 16, 16],
+                    "faces": {
+                        "up": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                        "down": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                        "north": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                        "south": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                        "east": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                        "west": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                    },
+                }
+            ],
             "display": {
                 "thirdperson": {
                     "rotation": [0, 0, 0],
@@ -41,7 +54,7 @@ def custom_model(texture: str) -> Model:
     return Model(
         {
             "parent": "beatblock:block",
-            "textures": {"all": f"beatblock:block/{texture}"},
+            "textures": {"texture": f"beatblock:block/{texture}"},
         }
     )
 
