@@ -6,6 +6,24 @@ from . import model
 from beet import Context, Function, FunctionTag
 
 
+def spawn_block(cmd: int) -> str:
+    return (
+        "execute"
+        "align xyz"
+        "positioned ~0.5 ~-1 ~0.5"
+        "run summon minecraft:armor_stand ~ ~ ~"
+        "{{"
+        "NoGravity:1,"
+        "Invisible:1,"
+        "NoAI:1,"
+        "Pose:{{RightArm:[0f,0f,0f]}}",
+        "Rotation:[-90f]",
+        'HandItems:[{{id:"minecraft:stone",Count:1b,tag:{{CustomModelData:{cmd}}}'
+        "}}"
+        "]}",
+    )
+
+
 def beet_default(ctx: Context) -> None:
 
     model.generate(ctx)
