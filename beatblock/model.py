@@ -35,14 +35,9 @@ def base_model() -> Model:
                 }
             ],
             "display": {
-                "thirdperson": {
+                "thirdperson_righthand": {
                     "rotation": [0, 0, 0],
-                    "translation": [0, 0, 0],
-                    "scale": [2, 2, 2],
-                },
-                "firstperson": {
-                    "rotation": [0, 0, 0],
-                    "translation": [0, 0, 0],
+                    "translation": [2, 6, -12],
                     "scale": [2, 2, 2],
                 },
             },
