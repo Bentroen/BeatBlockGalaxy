@@ -6,7 +6,7 @@ def multipart_model(prefix: str, models: List[str]) -> Model:
     def multipart_base() -> Dict:
         return {"parent": f"{prefix}/base", "overrides": []}
 
-    def multipart_predicate(cmd: int, model: str) -> dict:
+    def multipart_predicate(cmd: int, model: str) -> Dict:
         return {"predicate": {"custom_model_data": cmd}, "model": model}
 
     multipart = multipart_base()
