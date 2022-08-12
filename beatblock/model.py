@@ -75,4 +75,4 @@ def generate(ctx: Context) -> None:
         ctx.assets[f"beatblock:block/{state}"] = custom_model(texture=state)
 
     ctx.assets["beatblock:block/base"] = base_model()
-    ctx.assets["minecraft:item/diamond_hoe"] = multipart_model(states)
+    ctx.assets["minecraft:item/stone"] = multipart_model(states)
