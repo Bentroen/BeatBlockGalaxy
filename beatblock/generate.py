@@ -6,24 +6,6 @@ from . import model
 from beet import Context, Function, FunctionTag
 
 
-def spawn_block(cmd: int) -> str:
-    return (
-        "execute"
-        "align xyz"
-        "positioned ~0.5 ~-1 ~0.5"
-        "run summon minecraft:armor_stand ~ ~ ~"
-        "{{"
-        "NoGravity:1,"
-        "Invisible:1,"
-        "NoAI:1,"
-        "Pose:{{RightArm:[0f,0f,0f]}}",
-        "Rotation:[-90f]",
-        'HandItems:[{{id:"minecraft:stone",Count:1b,tag:{{CustomModelData:{cmd}}}'
-        "}}"
-        "]}",
-    )
-
-
 def beet_default(ctx: Context) -> None:
 
     model.generate(ctx)
@@ -40,14 +22,18 @@ def beet_default(ctx: Context) -> None:
     load_function.append("fill -8 -61 -8 24 -61 24 air")
     load_function.append("say hi")
 
+    load_function.append("kill @e[type=minecraft:armor_stand,tag=block]")
+    load_function.append("from ./spawn_block import spawn_block")
+
     swizzle = lambda x: x[::-1]  # invert Z and X coordinates
     for block in map.MISSION_1_BLOCKS:
         if block.type == map.BlockType.SOLID:
             command = "setblock {} {} {} purpur_block".format(*swizzle(block.coords))
         elif block.type == map.BlockType.BEAT_GREEN:
-            command = "setblock {} {} {} emerald_block".format(*swizzle(block.coords))
+            command = "spawn_block({}, {}, {}, {})".format(*swizzle(block.coords), 5)
+            # command = "setblock {} {} {} emerald_block".format(*swizzle(block.coords))
         elif block.type == map.BlockType.BEAT_YELLOW:
-            command = "setblock {} {} {} gold_block".format(*swizzle(block.coords))
+            command = "spawn_block({}, {}, {}, {})".format(*swizzle(block.coords), 2)
         load_function.append(command)
 
     ctx.data["beatblock:load"] = load_function

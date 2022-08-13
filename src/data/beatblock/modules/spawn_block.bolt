@@ -1,0 +1,27 @@
+def spawn_block(x, y, z, cmd):
+    execute
+        positioned x y z
+        align xyz
+        positioned ~0.5 ~ ~0.5
+        run summon armor_stand ~ ~ ~ {
+            NoGravity: 1,
+            Invisible: 1,
+            NoAI: 1,
+            Pose: {
+                RightArm: [0f, 0f, 0f]
+            },
+            Tags: [
+                "block",
+                f"block{cmd}"
+            ],
+            Rotation: [-90f, 0f],
+            HandItems: [
+                {
+                    id: "minecraft:stone",
+                    Count: 1,
+                    tag: {
+                        CustomModelData: cmd
+                    }
+                }
+            ]
+        }
