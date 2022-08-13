@@ -54,6 +54,28 @@ def custom_model(texture: str) -> Model:
     )
 
 
+def solid_model(texture: str) -> Model:
+    return Model(
+        {
+            "textures": {"texture": f"{texture}"},
+            "elements": [
+                {
+                    "from": [0, -16, 0],
+                    "to": [32, 16, 32],
+                    "faces": {
+                        "up": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                        "down": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                        "north": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                        "south": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                        "east": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                        "west": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+                    },
+                }
+            ],
+        }
+    )
+
+
 def generate(ctx: Context) -> None:
 
     states = [
@@ -71,3 +93,5 @@ def generate(ctx: Context) -> None:
 
     ctx.assets["beatblock:block/base"] = base_model()
     ctx.assets["minecraft:item/stone"] = multipart_model("beatblock:block", states)
+
+    ctx.assets["minecraft:block/purpur_block"] = solid_model("beatblock:block/solid")
