@@ -36,4 +36,4 @@ def beet_default(ctx: Context) -> None:
             command = "spawn_block({}, {}, {}, {})".format(*swizzle(block.coords), 2)
         load_function.append(command)
 
-    ctx.data["beatblock:load"] = load_function
+    ctx.data["beatblock:load_map"] = load_function
