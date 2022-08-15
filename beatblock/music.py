@@ -40,3 +40,12 @@ def beet_default(ctx: Context) -> None:
             },
         )
     )
+
+    for name, func in ctx.data.functions.items():
+        if "song" in name:
+            for i, line in enumerate(func.lines):
+                if line.strip().startswith("playsound"):
+                    if "FLASH" in line:
+                        func.lines[i] = "function beatblock:flash"
+                    elif "SWITCH" in line:
+                        func.lines[i] = "function beatblock:switch"
