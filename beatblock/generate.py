@@ -26,7 +26,7 @@ def beet_default(ctx: Context) -> None:
     load_function.append("from ./spawn_block import spawn_block, spawn_block_solid")
 
     swizzle = lambda x: x[::-1]  # invert Z and X coordinates
-    for block in map.MISSION_1_BLOCKS:
+    for block in map.BASE_BLOCKS:
         if block.type == map.BlockType.SOLID:
             command = "spawn_block_solid({}, {}, {})".format(*swizzle(block.coords))
         elif block.type == map.BlockType.BEAT_GREEN:
