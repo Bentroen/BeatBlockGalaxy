@@ -17,7 +17,8 @@
         "pigstep",
         "beet.contrib.scoreboard",
         "beatblock.generate",
-        "beatblock.music"
+        "beatblock.music",
+        "mecha"
     ],
     "meta": {
         "generate_rooms": true
