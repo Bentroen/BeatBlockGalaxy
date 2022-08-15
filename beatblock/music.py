@@ -8,6 +8,8 @@ import pynbs
 
 def beet_default(ctx: Context) -> None:
 
+    # Patch NBS file to work with pigstep's quirks (fix it there eventually!)
+
     song = pynbs.read(Path("songs", "beatblock.nbs"))
 
     # Set instrument name to sound event name (pigstep uses the sound file field as the sound event)
@@ -20,6 +22,16 @@ def beet_default(ctx: Context) -> None:
             press_key=ins.press_key,
         )
         song.instruments[ins.id] = new_ins
+
+    # Quantize notes to nearest tick (pigstep always exports at 20 t/s)
+    new_notes = []
+    for tick, chord in song:
+        new_tick = round(tick * 20 / song.header.tempo)
+        for note in chord:
+            attrs = note._asdict()
+            attrs["tick"] = new_tick
+            new_notes.append(pynbs.Note(**attrs))
+    song.notes = new_notes
 
     temp_songs_path = Path("songs", ".temp")
     if not os.path.exists(temp_songs_path):
