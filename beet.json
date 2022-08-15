@@ -15,9 +15,9 @@
     ],
     "pipeline": [
         "pigstep",
-        "beet.contrib.scoreboard",
         "beatblock.generate",
         "beatblock.music",
+        "beet.contrib.scoreboard",
         "mecha"
     ],
     "meta": {
