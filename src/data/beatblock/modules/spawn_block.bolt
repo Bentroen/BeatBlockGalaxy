@@ -25,3 +25,6 @@ def spawn_block(x, y, z, cmd):
                 }
             ]
         }
+
+def spawn_block_solid(x, y, z):
+    execute positioned x y z run function beatblock:place_block_solid

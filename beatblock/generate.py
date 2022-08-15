@@ -23,12 +23,12 @@ def beet_default(ctx: Context) -> None:
     load_function.append("say hi")
 
     load_function.append("kill @e[type=minecraft:armor_stand,tag=block]")
-    load_function.append("from ./spawn_block import spawn_block")
+    load_function.append("from ./spawn_block import spawn_block, spawn_block_solid")
 
     swizzle = lambda x: x[::-1]  # invert Z and X coordinates
     for block in map.MISSION_1_BLOCKS:
         if block.type == map.BlockType.SOLID:
-            command = "setblock {} {} {} purpur_block".format(*swizzle(block.coords))
+            command = "spawn_block_solid({}, {}, {})".format(*swizzle(block.coords))
         elif block.type == map.BlockType.BEAT_GREEN:
             command = "spawn_block({}, {}, {}, {})".format(*swizzle(block.coords), 5)
             # command = "setblock {} {} {} emerald_block".format(*swizzle(block.coords))
