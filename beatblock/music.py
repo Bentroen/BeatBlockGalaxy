@@ -1,15 +1,9 @@
-from io import BytesIO
 import os
 from pathlib import Path
-from tempfile import NamedTemporaryFile
 from beet import Context
 from pigstep import pigstep
 
 import pynbs
-
-
-def write_song_to_open_file(song: pynbs.File, buff: BytesIO):
-    pynbs.Writer(buff).encode_file(song, pynbs.CURRENT_NBS_VERSION)
 
 
 def beet_default(ctx: Context) -> None:
@@ -33,10 +27,6 @@ def beet_default(ctx: Context) -> None:
 
     filename = Path(temp_songs_path, "beatblock.nbs")
     song.save(filename)
-
-    # tempfile = NamedTemporaryFile()
-    # filename = os.path.basename(tempfile.name)
-    # write_song_to_open_file(song, tempfile)
 
     ctx.require(
         pigstep(
