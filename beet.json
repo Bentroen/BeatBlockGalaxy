@@ -14,8 +14,10 @@
         "bolt"
     ],
     "pipeline": [
+        "pigstep",
+        "beet.contrib.scoreboard",
         "beatblock.generate",
-        "mecha"
+        "beatblock.music"
     ],
     "meta": {
         "generate_rooms": true
