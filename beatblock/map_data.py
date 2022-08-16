@@ -162,6 +162,8 @@ BASE_BLOCKS = [
     *fill((32, 4, 82), (32, 4, 84), Y),
     # Solid square
     *fill((30, 4, 86), (32, 4, 88), S),
+    # Solid block atop pyramid
+    Block(31, 8, 99, S),
 ]
 
 
