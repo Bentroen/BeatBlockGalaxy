@@ -125,8 +125,10 @@ BASE_BLOCKS = [
     *fill((0, 2, 50), (2, 2, 52), S),
     # Green square
     *fill((-4, 1.5, 50), (-2, 1.5, 52), G),
-    # Yellow bridge
-    *fill((-8, 1.5, 50), (-6, 1.5, 56), Y),
+    # Yellow square
+    *fill((-8, 1.5, 50), (-6, 1.5, 52), Y),
+    # HERE is a square that changes color according to the mission
+    #
     # Solid bridge
     *fill((-8, 2, 58), (-6, 2, 64), S),
     # Alternating green and yellow rows
@@ -169,6 +171,8 @@ BASE_BLOCKS = [
 
 MISSION_1_BLOCKS = [
     *BASE_BLOCKS,
+    # Flipping square - Yellow
+    *fill((-8, 1.5, 54), (-6, 1.5, 56), Y),
     # Comet Medal bridge
     *fill((10, 2, 72), (12, 2, 72), Y),
     *fill((14, 2, 72), (16, 2, 72), G),
@@ -177,6 +181,8 @@ MISSION_1_BLOCKS = [
 ]
 
 MISSION_2_BLOCKS = [
+    # Flipping square - Green
+    *fill((-8, 1.5, 54), (-6, 1.5, 56), G),
     *BASE_BLOCKS,
     # Full pyramid
     *[block for face in full_pyramid((31, 8, 99), 10) for block in face],
