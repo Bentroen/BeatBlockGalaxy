@@ -37,8 +37,8 @@ def base_model() -> Model:
             "display": {
                 "thirdperson_righthand": {
                     "rotation": [0, 0, 0],
-                    "translation": [2, 6, -12],
-                    "scale": [2, 2, 2],
+                    "translation": [-6, -2, -4],
+                    "scale": [3, 3, 3],
                 },
             },
         }
@@ -60,8 +60,8 @@ def solid_model(texture: str) -> Model:
             "textures": {"texture": f"{texture}"},
             "elements": [
                 {
-                    "from": [0, -16, 0],
-                    "to": [32, 16, 32],
+                    "from": [-16, -16, -16],
+                    "to": [32, 32, 32],
                     "faces": {
                         "up": {"uv": [0, 0, 16, 16], "texture": "#texture"},
                         "down": {"uv": [0, 0, 16, 16], "texture": "#texture"},
