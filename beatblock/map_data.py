@@ -166,6 +166,7 @@ BASE_BLOCKS = [
 
 
 MISSION_1_BLOCKS = [
+    *BASE_BLOCKS,
     # Comet Medal bridge
     *fill((10, 3, 72), (12, 3, 72), Y),
     *fill((14, 3, 72), (16, 3, 72), G),
@@ -174,6 +175,7 @@ MISSION_1_BLOCKS = [
 ]
 
 MISSION_2_BLOCKS = [
+    *BASE_BLOCKS,
     # Full pyramid
     *[block for face in full_pyramid((31, 10, 99), 10) for block in face],
 ]
