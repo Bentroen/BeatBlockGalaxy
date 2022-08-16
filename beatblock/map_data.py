@@ -99,7 +99,7 @@ def full_pyramid(top: Coords, height: int):
 
 BASE_BLOCKS = [
     # Starting bridge
-    *fill((0, 0, 0), (2, 0, 8), S),
+    *fill((0, 0, 0), (2, 0, 6), S),
     # 2 green to the right
     *fill((0, 0, 8), (0, 0, 10), S),
     *fill((2, 0, 8), (2, 0, 10), G),
