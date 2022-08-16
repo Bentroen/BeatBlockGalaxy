@@ -22,7 +22,12 @@ def beet_default(ctx: Context) -> None:
     load_function.append("fill -8 -61 -8 24 -61 24 air")
     load_function.append("say hi")
 
+    # Reset existing blocks
+    load_function.append(
+        "execute as @e[type=armor_stand,tag=block] at @s run fill ~ ~ ~ ~1 ~-1 ~1 air"
+    )
     load_function.append("kill @e[type=minecraft:armor_stand,tag=block]")
+
     load_function.append("from ./spawn_block import spawn_block, spawn_block_solid")
 
     swizzle = lambda x: x[::-1]  # invert Z and X coordinates
