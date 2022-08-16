@@ -32,13 +32,14 @@ def beet_default(ctx: Context) -> None:
 
     swizzle = lambda x: x[::-1]  # invert Z and X coordinates
     for block in map.MISSION_2_BLOCKS:
+        coords = [round(coord * 3 / 2) for coord in swizzle(block.coords)]
         if block.type == map.BlockType.SOLID:
-            command = "spawn_block_solid({}, {}, {})".format(*swizzle(block.coords))
+            command = "spawn_block_solid({}, {}, {})".format(*coords)
         elif block.type == map.BlockType.BEAT_GREEN:
-            command = "spawn_block({}, {}, {}, {})".format(*swizzle(block.coords), 5)
+            command = "spawn_block({}, {}, {}, {})".format(*coords, 5)
             # command = "setblock {} {} {} emerald_block".format(*swizzle(block.coords))
         elif block.type == map.BlockType.BEAT_YELLOW:
-            command = "spawn_block({}, {}, {}, {})".format(*swizzle(block.coords), 2)
+            command = "spawn_block({}, {}, {}, {})".format(*coords, 2)
         load_function.append(command)
 
     ctx.data["beatblock:load_map"] = load_function
