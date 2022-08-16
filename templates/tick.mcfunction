@@ -3,7 +3,7 @@
 #!set note_function = generate_path("note")
 
 execute as @a[tag={{ song_play }}] at @s run function {{ note_function }}
-execute as @a[tag={{ song_play }}, scores={ {{song_tick}} = 512.. }] run scoreboard players set @s {{ song_tick }} 120
+execute as @a[tag={{ song_play }}, scores={ {{song_tick}} = 520.. }] run scoreboard players set @s {{ song_tick }} 120
 
 #!function note_function
     #!for node in generate_song()
