@@ -99,9 +99,11 @@ BASE_BLOCKS = [
     # Starting bridge
     *fill((0, 0, 0), (2, 0, 8), S),
     # 2 green to the right
+    *fill((0, 0, 8), (0, 0, 10), S),
     *fill((2, 0, 8), (2, 0, 10), G),
     # 2 yellow to the left
     *fill((0, 0, 12), (0, 0, 14), Y),
+    *fill((2, 0, 12), (2, 0, 14), S),
     # Solid square
     *fill((0, 0, 16), (2, 0, 18), S),
     # Green and yellow rows
