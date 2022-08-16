@@ -24,7 +24,7 @@ def beet_default(ctx: Context) -> None:
 
     # Reset existing blocks
     load_function.append(
-        "execute as @e[type=armor_stand,tag=block] at @s run fill ~ ~ ~ ~1 ~-1 ~1 air"
+        "execute as @e[type=armor_stand,tag=block] at @s run fill ~ ~ ~ ~-3 ~-3 ~-3 air"
     )
     load_function.append("kill @e[type=minecraft:armor_stand,tag=block]")
 
@@ -32,7 +32,7 @@ def beet_default(ctx: Context) -> None:
 
     swizzle = lambda x: x[::-1]  # invert Z and X coordinates
     for block in map.MISSION_2_BLOCKS:
-        coords = [round(coord * 3 / 2) for coord in swizzle(block.coords)]
+        coords = [round(coord * 2) for coord in swizzle(block.coords)]
         if block.type == map.BlockType.SOLID:
             command = "spawn_block_solid({}, {}, {})".format(*coords)
         elif block.type == map.BlockType.BEAT_GREEN:

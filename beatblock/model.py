@@ -37,8 +37,8 @@ def base_model() -> Model:
             "display": {
                 "thirdperson_righthand": {
                     "rotation": [0, 0, 0],
-                    "translation": [-6, -2, -4],
-                    "scale": [3, 3, 3],
+                    "translation": [-30, -26, -28],
+                    "scale": [4, 4, 4],
                 },
             },
         }
@@ -50,28 +50,6 @@ def custom_model(texture: str) -> Model:
         {
             "parent": "beatblock:block/base",
             "textures": {"texture": f"beatblock:block/{texture}"},
-        }
-    )
-
-
-def solid_model(texture: str) -> Model:
-    return Model(
-        {
-            "textures": {"texture": f"{texture}"},
-            "elements": [
-                {
-                    "from": [-16, -16, -16],
-                    "to": [32, 32, 32],
-                    "faces": {
-                        "up": {"uv": [0, 0, 16, 16], "texture": "#texture"},
-                        "down": {"uv": [0, 0, 16, 16], "texture": "#texture"},
-                        "north": {"uv": [0, 0, 16, 16], "texture": "#texture"},
-                        "south": {"uv": [0, 0, 16, 16], "texture": "#texture"},
-                        "east": {"uv": [0, 0, 16, 16], "texture": "#texture"},
-                        "west": {"uv": [0, 0, 16, 16], "texture": "#texture"},
-                    },
-                }
-            ],
         }
     )
 
@@ -93,5 +71,3 @@ def generate(ctx: Context) -> None:
 
     ctx.assets["beatblock:block/base"] = base_model()
     ctx.assets["minecraft:item/stone"] = multipart_model("beatblock:block", states)
-
-    ctx.assets["minecraft:block/purpur_block"] = solid_model("beatblock:block/solid")

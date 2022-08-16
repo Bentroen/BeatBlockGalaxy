@@ -27,5 +27,5 @@ def spawn_block(x, y, z, cmd):
         }
 
 def spawn_block_solid(x, y, z):
-    execute positioned x y z run fill ~ ~ ~ ~1 ~-1 ~1 barrier
-    execute positioned x y z run setblock ~ ~ ~ purpur_block
+    spawn_block(x, y, z, 1)
+    execute positioned x y z run fill ~ ~ ~ ~-3 ~ ~-3 barrier
