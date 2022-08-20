@@ -10,6 +10,7 @@ python = "^3.10"
 beet = "^0.71.0"
 bolt = "^0.17.5"
 pigstep = "^0.2.1"
+Pillow = "^9.2.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"
