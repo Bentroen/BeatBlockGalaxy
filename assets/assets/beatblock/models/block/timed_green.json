@@ -1,0 +1,7 @@
+{
+    "parent": "beatblock:block/solid",
+    "textures": {
+		"side": "blockbench:block/timed_green_side",
+		"frame": "blockbench:block/timed_green_frame"
+    }
+}

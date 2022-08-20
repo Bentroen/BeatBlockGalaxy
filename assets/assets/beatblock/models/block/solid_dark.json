@@ -1,0 +1,9 @@
+{
+    "parent": "beatblock:block/solid",
+    "textures": {
+        "side": "beatblock:block/solid_dark_side",
+        "top": "beatblock:block/solid_dark_top",
+        "frame": "beatblock:block/metal",
+        "frame_light": "beatblock:block/metal_light"
+    }
+}
