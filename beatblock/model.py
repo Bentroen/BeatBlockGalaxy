@@ -54,7 +54,7 @@ def custom_model(texture: str) -> Model:
     )
 
 
-def generate(ctx: Context) -> None:
+def beet_default(ctx: Context) -> None:
 
     states = [
         "solid",
